@@ -1,17 +1,22 @@
 import React from 'react';
 
+import WeatherIcon from './WeatherIcon';
+
 const Card = (props) => {
+  const {icon, date} = props.data;
   return (
     <div className="card text-center">
-      <div className="card-header">
-        { props.data }
-      </div>
       <div className="card-body">
-        <h5 className="card-title">Special title treatment</h5>
-        <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
+       <WeatherIcon icon={icon.name} size={icon.size}/>
+        <div className="card-text">
+          <div className="box-temperature">
+            <p className="temperature current">22º <small className="tiny-text">C</small></p>
+            <p className="temperature max-min">21º/5º</p>
+          </div>
+        </div>
       </div>
       <div className="card-footer">
-        2 days ago
+        {date}
       </div>
     </div>
   )

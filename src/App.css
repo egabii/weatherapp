@@ -1,7 +1,6 @@
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-  background-color: #ebebeb; }
+  height: 80px; }
 
 .App-header {
   background-color: #222;
@@ -11,7 +10,7 @@
 
 .App-title {
   font-size: 1.5em;
-  color: #491bb3; }
+  color: #fcfcfc; }
 
 .App-intro {
   font-size: large; }
@@ -34,10 +33,19 @@
   font-size: 3rem;
   margin: 0; }
 
-.today-forecast {
+.temperature.max-min {
+  font-size: 1.75rem;
+  line-height: 1; }
+
+.today-forecast p {
+  margin: 0; }
+
+.box {
   padding: 10px 15px;
-  border-bottom: 0.5px solid;
-  margin-bottom: 10px; }
+  margin: 10px 0 0; }
 
 .wi.color-default {
   color: #924da3; }
+
+.bg-grey {
+  background-color: #ebebeb; }

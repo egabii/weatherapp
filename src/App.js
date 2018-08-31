@@ -1,51 +1,82 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+
 import './App.css';
 
-
+// dependencies
 import Panel from './components/Panel';
+import WeatherIcon from './components/WeatherIcon';
+import FormPanel from './components/FormPanel';
+// common
+import Header from './common/Header';
 class App extends Component {
 
   constructor(props){
     super(props)
     this.state = {
-      items:['Monday', 'Tuesday', 'Wednesday', 'Thursday']
+      items:[
+        {
+          date: 'Monday',
+          icon: {
+            name:'wi-day-sunny',
+            size: 3
+          }
+        },
+        {
+          date:'Tuesday',
+          icon: {
+            name:'wi-day-sunny',
+            size: 3
+          }
+        },
+        {
+          date: 'Wednesday',
+          icon: {
+            name:'wi-day-sunny',
+            size: 3
+          }
+        }, {
+          date: 'Thursday',
+          icon: {
+            name:'wi-day-sunny',
+            size: 3
+          }
+        }
+      ],
+      icon: {
+        name:'wi-day-sunny',
+        size: 3
+      }
     };
   }
 
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to Weather App</h1>
-        </header>
-        <section className="container">
+        <Header />
+        <section className="container-fluid">
           <div className="row">
-            <section className="col-8">
-              <div className="today-forecast row">
-                <div className="col-8">
+            <section className="col-md-8 col-sm-12">
+              <div className="row today-forecast bg-grey box">
+                <div className="col-md-8 col-sm-12 col-lg-9">
                   <h3>Ciudad de Resistencia</h3>
                   <p>dom, 26 de agosto 4:33 PM</p>
                   <p>Soleado</p>
                 </div>
-                <div className="col-4 box-condition">
-                  <div className="box-icon icon-condition">
-                    <i className="display-2 wi wi-day-sunny color-default"></i>
-                  </div>
+                <div className="col-md-4 col-sm-12 col-lg-3 box-condition">
+                  <WeatherIcon icon={this.state.icon.name} size={this.state.icon.size} />
                   <div className="box-temperature">
                     <p className="temperature current">22º <small className="tiny-text">C</small></p>
                     <p className="temperature max-min">21º/5º</p>
                   </div>
                 </div>
               </div>
-              <div className="next-five-days">
+              <div className="row next-five-days bg-grey box">
                 <Panel items={this.state.items} />
               </div>
             </section>
-            <section className="col-4">
-              cities search section
-            </section>           
+            <section className="col-md-4 col-sm-12">
+              <FormPanel />
+            </section>
           </div>
         </section>
       </div>
