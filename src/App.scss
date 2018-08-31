@@ -1,10 +1,7 @@
-.App {
-  text-align: center;
-}
-
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
+  background-color: #ebebeb;
 }
 
 .App-header {
@@ -30,4 +27,25 @@
 
 .bigger {
   font-size: 2rem;
+}
+
+.box-condition {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.temperature.current {
+  font-size: 3rem;
+  margin: 0;
+}
+
+.today-forecast {
+  padding: 10px 15px;
+  border-bottom: 0.5px solid;
+  margin-bottom: 10px;
+}
+
+.wi.color-default {
+  color: #924da3
 }
