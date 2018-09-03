@@ -12,8 +12,8 @@ const Panel = (props) => {
               <Card data={item}/>
             </div>
           )
-        }
-      ) }
+        }) 
+      }
     </Fragment>
   )
 }

@@ -1,27 +1,31 @@
-import React from 'react';
+import React, { Component } from 'react';
 
+// dependencies
+import AsyncSearchBar from './AsyncSearchBar/AsyncSearchBar';
 
-export default class PanelForm extends React.Component {
+const searchWrapper = {
+    margin: '10px 0 0'
+}
+export default class PanelForm extends Component {
 
     constructor(props){
         super(props);
     }
 
-
     render(){
         return (
-            <form>
-                <div>
-                    <label htmlFor="input-city">Ciudades</label>
-                    <input type="text" id="input-city" value="" />
-                </div>
-                <fieldset>
-                    <div className="input-wrapper radio-btn">
-                        <label htmlFor="input-city-name">Ciudad de Resistencia</label>
-                        <input type="radio" id="input-city-name" value="" />
-                    </div>
-                </fieldset>
-            </form>
+            <div style={searchWrapper}>
+                <AsyncSearchBar />
+            </div>
         )
     }
 }
+
+/* <form>
+<fieldset>
+    <div className="input-wrapper radio-btn">
+        <label htmlFor="input-city-name">Ciudad de Resistencia</label>
+        <input type="radio" id="input-city-name" value="" />
+    </div>
+</fieldset>
+</form> */

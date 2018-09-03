@@ -7,7 +7,7 @@ import 'weather-icons/css/weather-icons.css';
 import './index.css';
 
 // MainComponent
-import App from './App';
+import App from './components/Main/App';
 import registerServiceWorker from './registerServiceWorker';
 
 ReactDOM.render(<App />, document.getElementById('root'));
