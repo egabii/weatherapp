@@ -5,7 +5,8 @@ import './App.css';
 // dependencies
 import Panel from '../Panel';
 import WeatherIcon from '../WeatherIcon';
-import FormPanel from '../FormPanel';
+import WeatherMap from '../Map/Map';
+/* import FormPanel from '../FormPanel'; */
 // common
 import Header from '../../common/Header';
 
@@ -18,6 +19,7 @@ class App extends Component {
     this.state = {
       items:[
         {
+          id: 'Monday-1',
           date: 'Monday',
           icon: {
             name:'wi-day-sunny',
@@ -25,6 +27,7 @@ class App extends Component {
           }
         },
         {
+          id: 'Tuesday-2',
           date:'Tuesday',
           icon: {
             name:'wi-day-sunny',
@@ -32,12 +35,15 @@ class App extends Component {
           }
         },
         {
+          id: 'Wednesday-3',
           date: 'Wednesday',
           icon: {
             name:'wi-day-sunny',
             size: 3
           }
-        }, {
+        },
+        {
+          id: 'Thursday-4',
           date: 'Thursday',
           icon: {
             name:'wi-day-sunny',
@@ -82,7 +88,10 @@ class App extends Component {
               </div>
             </section>
             <section className="col-md-4 col-sm-12">
-              <FormPanel onSubmit={this.onChange}/>
+              {
+                //<FormPanel onSubmit={this.onChange}/>
+              }
+              <WeatherMap />
             </section>
           </div>
         </section>

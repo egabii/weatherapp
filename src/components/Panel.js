@@ -8,11 +8,11 @@ const Panel = (props) => {
       {
         props.items.map(item => {
           return (
-            <div className="col-md col-sm" key={item}>
+            <div className="col-md col-sm" key={item.id}>
               <Card data={item}/>
             </div>
           )
-        }) 
+        })
       }
     </Fragment>
   )
