@@ -13,6 +13,8 @@ class App extends Component {
 
   constructor(props){
     super(props)
+
+    this.onChange = this.onChange.bind(this);
     this.state = {
       items:[
         {
@@ -50,7 +52,11 @@ class App extends Component {
     };
   }
 
-  render() {
+  onChange (){
+    console.log('on change sumbit');
+  }
+
+  render (){
     return (
       <div className="App">
         <Header />
@@ -76,7 +82,7 @@ class App extends Component {
               </div>
             </section>
             <section className="col-md-4 col-sm-12">
-              <FormPanel />
+              <FormPanel onSubmit={this.onChange}/>
             </section>
           </div>
         </section>

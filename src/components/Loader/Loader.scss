@@ -1,7 +1,13 @@
-
 .loader {
-  animation: spinner infinite 5s linear;
-  height: 80px;
+  &-wrapper {
+    margin: 0 auto;
+    padding: 5px;
+    width: 50px
+  }
+
+  animation: spinner infinite 2s linear;
+  opacity: 0.35;
+  height: 50px;
 }
 
 @keyframes spinner {

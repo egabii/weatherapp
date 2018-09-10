@@ -4,14 +4,9 @@ import './Loader.css';
 import spinner from './spinner.png';
 
 const Spinner = () => {
-  const wrapper = {
-    margin: '0 auto',
-    padding: '5px',
-    width: '100px'
-  };
   return (
-    <div style={wrapper}>
-      <img src={spinner} className="loader"/>
+    <div className="loader-wrapper">
+      <img src={spinner} alt="" className="loader"/>
     </div>
   )
 }

@@ -5,20 +5,18 @@ import React, { Component } from 'react';
 import {Loader} from '../Loader/Loader';
 import './AsyncSearchBar.css';
 
-const searchBoxStyle = {
-  outline: '1px solid #000'
-};
-
 const ResultBox = () => {
     return (
       <div> Some data was retrieve </div>
     )
 }
-
+let result = { isIdle: true };
 export default class AsyncSearchBar extends Component {
 
   constructor(props){
     super(props);
+
+    this.onSearch = this.onSearch.bind(this);
   }
 
   onSearch(e){
@@ -31,9 +29,8 @@ export default class AsyncSearchBar extends Component {
   }
 
   loading (){
-    let result = true;
-    setTimeout(() => result = false, 2000);
-    return result;
+    setTimeout(() => result.isIdle = false, 1000);
+    return result
   }
 
   render(){
@@ -47,8 +44,8 @@ export default class AsyncSearchBar extends Component {
             placeholder="City"
             onChange={this.onSearch} />
         </div>
-        <div id="search-box" style={searchBoxStyle} className="search-box on-hide">
-          { Loader(ResultBox)({isIdle: this.loading()}) }
+        <div id="search-box" className="search-box on-hide">
+          { Loader(ResultBox)({isIdle: this.loading().isIdle }) }
         </div>
       </form>
     )
