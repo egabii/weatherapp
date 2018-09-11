@@ -5,8 +5,8 @@ import './App.css';
 // dependencies
 import Panel from '../Panel';
 import WeatherIcon from '../WeatherIcon';
-import WeatherMap from '../Map/Map';
-/* import FormPanel from '../FormPanel'; */
+import WeatherMap from '../Map/WeatherMap';
+
 // common
 import Header from '../../common/Header';
 
@@ -15,7 +15,6 @@ class App extends Component {
   constructor(props){
     super(props)
 
-    this.onChange = this.onChange.bind(this);
     this.state = {
       items:[
         {
@@ -58,10 +57,6 @@ class App extends Component {
     };
   }
 
-  onChange (){
-    console.log('on change sumbit');
-  }
-
   render (){
     return (
       <div className="App">
@@ -88,9 +83,6 @@ class App extends Component {
               </div>
             </section>
             <section className="col-md-4 col-sm-12">
-              {
-                //<FormPanel onSubmit={this.onChange}/>
-              }
               <WeatherMap />
             </section>
           </div>
