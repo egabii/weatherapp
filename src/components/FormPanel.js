@@ -5,49 +5,100 @@ import React, { Component } from 'react';
 
 const searchWrapper = {
   margin: '10px 0 0'
-}
+};
 
 const cities = [
   {
     id: 'rciaAR',
     name: 'Resistencia',
-    country: 'AR'
+    country: 'AR',
+    active: false
   },
   {
     id: 'floripaBR',
     name: 'Florianopolis',
-    country: 'BR'
+    country: 'BR',
+    active: false
   }
 ];
+
+const listGroupItemStatus = {
+  active: 'list-group-item active',
+  inactive: 'list-group-item'
+};
+
+const listStyle = { 
+  overflow: 'hidden'
+};
 export default class PanelForm extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      cities
-    }
+    this.state = { cities };
 
     this.onChange =  this.onChange.bind(this);
+    this.onActive =  this.onActive.bind(this);
+    this.onSelect = this.onSelect.bind(this);
+    this.onClickSelection = this.onClickSelection.bind(this);
   }
 
-  onChange (){
-    console.log('hola');
+  onChange (e){
+    const selectedId = e.target.id;
+    this.onSelect({selectedId});
   }
 
-  onActive(id){
-    return (this.state.selected === id ? 'list-group-item active' : 'list-group-item');
+  onClickSelection (e){
+    let selectedId = '';
+    if (e.target.id === ''){
+      selectedId = e.target.offsetParent.id.split('-')[1]
+    } else {
+      selectedId = e.target.id.split('-')[1];
+    }
+
+    this.onSelect({selectedId});
   }
+
+  onSelect ({selectedId}){
+    this.setState(prevState => {
+      const cities =  prevState.cities.map(city => ({ ...city, 
+          active: city.id === selectedId 
+        }) 
+      );
+
+      return { cities }
+    });
+  }
+
+
+  onActive(city){
+    return city.active ? listGroupItemStatus.active : listGroupItemStatus.inactive;
+  }
+
   render() {
+    /*
+      <FormPanel onSubmit={onSubmit}>
+        <RadioGroup collection={data} defaultValue={data[0]} />
+      </FormPanel>
+    */
     return (
       <div style={searchWrapper}>
         <form>
           <fieldset>
             <ul className="list-group">
               {
-                this.state.cities.map(city => (<li className="list-group-item active" key={city.id}>
+                this.state.cities.map(city => 
+                  (<li className={this.onActive(city)} 
+                    key={city.id}
+                    id={`item-${city.id}`} 
+                    onClick={this.onClickSelection} 
+                    style={listStyle}>
                     <div className="input-wrapper radio-btn">
-                      <label htmlFor={`option-${city.id}`}>{'Ciudad de '+ city.name }</  label>
-                      <input type="radio" id={`option-${city.id}`} value="resistencia,AR" onChange={this.onChange} />
+                      <label htmlFor={city.id}>{'Ciudad de '+ city.name }</label>
+                      <input type="radio" 
+                        id={city.id} 
+                        value={`${city.name},${city.country}`} 
+                        onChange={this.onChange} 
+                        checked={city.active}/>
                     </div>
                   </li>)
                 )
