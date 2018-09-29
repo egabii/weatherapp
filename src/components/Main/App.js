@@ -4,7 +4,7 @@ import './App.css';
 
 // dependencies
 import Panel from '../Panel';
-import WeatherIcon from '../WeatherIcon';
+import WeatherIcon from '../WeatherIcon/';
 import FormPanel from '../FormPanel';
 // common
 import Header from '../../common/Header';
@@ -20,33 +20,33 @@ class App extends Component {
         {
           date: 'Monday',
           icon: {
-            name:'wi-day-sunny',
+            name:'lunar-eclipse',
             size: 3
           }
         },
         {
           date:'Tuesday',
           icon: {
-            name:'wi-day-sunny',
+            name:'day-sunny',
             size: 3
           }
         },
         {
           date: 'Wednesday',
           icon: {
-            name:'wi-day-sunny',
+            name:'day-sunny',
             size: 3
           }
         }, {
           date: 'Thursday',
           icon: {
-            name:'wi-day-sunny',
+            name:'day-sunny',
             size: 3
           }
         }
       ],
       icon: {
-        name:'wi-day-sunny',
+        name:'day-sunny',
         size: 3
       }
     };
@@ -57,6 +57,28 @@ class App extends Component {
   }
 
   render (){
+    /**
+     * <Container type={fluid}>
+     *    <Row>
+     *      <Col sizes={{'md':8, 'sm':12}}>
+     *        <ForecastView>
+     *          <Block size={{'md':8, 'sm':12, 'lg':9}}>
+     *             <LocationView />
+     *          </Block>
+     *          <Block size={{'md':4, 'sm':12, 'lg':3}}>
+     *            <ConditionView />
+     *          </Block>
+     *        </ForecastView>
+     *        <Panel>
+     *          this.state.cards.map(card => <Card data={card}/> )
+     *        </Panel>
+     *      </Col>
+     *      <Col sizes={{'md':4, 'sm':12}}>
+     *        <FormPanel />
+     *      </Col>
+     *    </Row>
+     * </Container>
+     */
     return (
       <div className="App">
         <Header />

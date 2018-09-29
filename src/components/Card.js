@@ -1,6 +1,6 @@
 import React from 'react';
 
-import WeatherIcon from './WeatherIcon';
+import WeatherIcon from './WeatherIcon/';
 
 const Card = (props) => {
   const {icon, date} = props.data;
