@@ -30,6 +30,11 @@ const listGroupItemStatus = {
 const listStyle = { 
   overflow: 'hidden'
 };
+
+const radioBtnStyle = {
+  position: 'absolute',
+  left: '-1000px'
+}
 export default class PanelForm extends Component {
 
   constructor(props) {
@@ -48,14 +53,16 @@ export default class PanelForm extends Component {
   }
 
   onClickSelection (e){
-    let selectedId = '';
+    let targetId = null;
     if (e.target.id === ''){
-      selectedId = e.target.offsetParent.id.split('-')[1]
+      targetId = e.target.offsetParent.id
     } else {
-      selectedId = e.target.id.split('-')[1];
+      targetId = e.target.id;
     }
 
-    this.onSelect({selectedId});
+    this.onSelect({
+      selectedId: targetId.split('-')[1]
+    });
   }
 
   onSelect ({selectedId}){
@@ -83,7 +90,7 @@ export default class PanelForm extends Component {
     return (
       <div style={searchWrapper}>
         <form>
-          <fieldset>
+          <fieldset className="radiogroup">
             <ul className="list-group">
               {
                 this.state.cities.map(city => 
@@ -97,8 +104,10 @@ export default class PanelForm extends Component {
                       <input type="radio" 
                         id={city.id} 
                         value={`${city.name},${city.country}`} 
-                        onChange={this.onChange} 
-                        checked={city.active}/>
+                        onChange={this.onChange}
+                        onClick={(e) => e.stopPropagation()} 
+                        checked={city.active}
+                        style={radioBtnStyle}/>
                     </div>
                   </li>)
                 )
